@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+    <title>Character and Word Counter</title>
+</head>
+<body>
+    <textarea id='input'></textarea>
+    <button onclick='count()'>count letters and words</button>
+    <p id='results'></p>
+
+    <script>
+        var input = document.getElementById('input');
+        var results = document.getElementById('results');
+
+        function count(){
+            var sentence = input.value;
+            var length = sentence.length;
+            var letterCount = 0;
+            var wordCount = 1;
+            var letter;
+
+            for ( var i = 0; i < length; i++ ) {
+                letter = sentence[i];
+                if ( letter != ' ' ) {
+                    letterCount = letterCount + 1;
+                }
+                else if ( sentence[i - 1] !== ' ' ) {
+                    wordCount = wordCount + 1;
+                }
+            }
+
+            results.innerHTML = 'the letter count (excluding spaces)is' + letterCount
+             + '\nthe word count is ' + wordCount;
+        }
+
+    </script>
+
+</body>
